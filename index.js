@@ -11,8 +11,10 @@ const connectionString = process.env.DATABASE_URL;
 const pool = new Pool({connectionString: connectionString}); 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.set("port", PORT);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 
 app.get("/displayIngredients", getIngredients);
 
@@ -21,13 +23,14 @@ app.listen(PORT, function() {
 });
 
 function getIngredients(request, response) {
-    pool.query('SELECT * FROM ingredient', function(err, result) {
+    const sql = 'SELECT * FROM ingredient';
+    pool.query(sql, function(err, result) {
         if (err) {
             console.log("Error in query: ");
             console.log(err);
         }
 
         console.log("Back from Database with result:");
-        console.log(result.rows);
+        console.log("Ingredients are: " + JSON.stringify(result.rows));
     });
 }
