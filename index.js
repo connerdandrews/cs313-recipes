@@ -32,7 +32,6 @@ function getIngredients(request, response) {
 
         console.log("Back from Database with result:");
         console.log("Ingredients are: " + JSON.stringify(result.rows));
-        const parameters = JSON.stringify(result.rows);
-        response.render('pages/ingredients', parameters);
+        response.render('pages/ingredients', result.rows);
     });
 }
