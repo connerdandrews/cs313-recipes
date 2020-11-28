@@ -42,7 +42,7 @@ function addIngredients(request, response) {
     const exp_day = request.query.expiration_day;
     const exp_month = request.query.expiration_month;
     const exp_year = request.query.expiration_year;
-    const sql2 = 'INSERT INTO ingredient (ingredient_name, expiration_day, expiration_month, expiration_year) VALUES(ing_name, exp_day, exp_month, exp_year)';
+    const sql2 = 'INSERT INTO ingredient (ingredient_name, expiration_day, expiration_month, expiration_year) VALUES('+ ing_name + ', ' + exp_day + ', ' + exp_month + ', ' + exp_year + ')';
     pool.query(sql2, function(err, result) {
         if (err) {
             console.log("Error in query: ");
