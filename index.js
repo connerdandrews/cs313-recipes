@@ -54,7 +54,7 @@ function addIngredients(request, response) {
         }
         console.log("Inserting into database...");
         console.log("Insert successful. Redirecting to ingredients page.");
-        response.render('check_ingredients.html');
+        response.render('check_ingredients');
         
     });
 }
