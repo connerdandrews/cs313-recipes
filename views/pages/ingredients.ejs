@@ -10,6 +10,12 @@
     <div>
         <p>Ingredient List:
             <table>
+                    <tr>
+                        <td><b>Ingredient</b></td>
+                        <td><b>Expiration Month</b></td>
+                        <td><b>Expiration Day</b></td>
+                        <td><b>Expiration Year</b></td>
+                    </tr>
                 <% for (var i=0; i < rows.length; i++) { %>
                     <tr>
                         <td><%= rows[i].ingredient_name %></td>
