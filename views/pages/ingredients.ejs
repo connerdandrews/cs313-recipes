@@ -10,12 +10,12 @@
     <div>
         <p>Ingredient List:
             <table>
-                <% for (var i=0; i < rows.length; i++) { %>
+                <% for (var i=0; i < response.length; i++) { %>
                     <tr>
-                        <td><%= rows[i].ingredient %></td>
-                        <td><%= rows[i].expiration_month %></td>
-                        <td><%= rows[i].expiration_day %></td>
-                        <td><%= rows[i].expiration_year %></td>
+                        <td><%= response[i].ingredient %></td>
+                        <td><%= response[i].expiration_month %></td>
+                        <td><%= response[i].expiration_day %></td>
+                        <td><%= response[i].expiration_year %></td>
                     </tr>
                <% } %>
             </table>
