@@ -9,7 +9,16 @@
     <h1>Current Ingredient List</h1>
     <div>
         <p>Ingredient List:
-            
+            <table>
+                <% for (var i=0; i < result.rows.length; i++) { %>
+                    <tr>
+                        <td><%= rows[i].ingredient %></td>
+                        <td><%= rows[i].expiration_month %></td>
+                        <td><%= rows[i].expiration_day %></td>
+                        <td><%= rows[i].expiration_year %></td>
+                    </tr>
+               <% } %>
+            </table>
         </p><br><br>
 
         Click here to add an ingredient. <button type=button onclick="window.location.href='/add_ingredients.html'">Add ingredients</button> <br><br>
