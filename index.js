@@ -94,7 +94,7 @@ function addRecipe(request, response) {
     console.log("Ingredient 5: " + ingredient_5);
     console.log("Servings " + servings);
     console.log("Cooking Instructions: " + cooking_instructions);
-    const sql3 = 'INSERT INTO recipe (recipe_name, ingredient_1, ingredient_2, ingredient_3, ingredient_4, ingredient_5, servings, cooking_instructions) VALUES(\'' + recipe_name + '\', ' + ingredient_1 + '\', ' + ingredient_2 + '\', ' + ingredient_3 + '\', ' + ingredient_4 + '\', ' + ingredient_5 + ', ' + servings + '\', ' + cooking_instructions + ')';
+    const sql3 = 'INSERT INTO recipe (recipe_name, ingredient_1, ingredient_2, ingredient_3, ingredient_4, ingredient_5, servings, cooking_instructions) VALUES(\'' + recipe_name + '\', \'' + ingredient_1 + '\', \'' + ingredient_2 + '\', \'' + ingredient_3 + '\', \'' + ingredient_4 + '\', \'' + ingredient_5 + '\', ' + servings + ', \'' + cooking_instructions + '\')';
     pool.query(sql3, function(err, result) {
         if (err) {
             console.log("Error in query: ");
