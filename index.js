@@ -102,7 +102,7 @@ function addRecipe(request, response) {
         }
         console.log("Inserting into recipe database...");
         console.log("Insert successful. Redirection to recipe page.");
-        response.redirect("/check_recipes.html");
+        response.redirect("/check_recipies.html");
 
     });
 
