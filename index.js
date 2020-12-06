@@ -18,6 +18,8 @@ app.set('view engine', 'ejs');
 
 app.get("/displayIngredients", getIngredients);
 app.get("/addIngredients", addIngredients);
+app.get("/displayRecipes", getRecipes);
+app.get("/addRecipes", addRecipe);
 
 app.listen(PORT, function() {
     console.log("Listening on port", PORT);
@@ -57,4 +59,52 @@ function addIngredients(request, response) {
         response.redirect("/check_ingredients.html");
         
     });
+}
+
+
+function getRecipes(request, response) {
+    const sql = 'SELECT * FROM recipe';
+    pool.query(sql, function(err, result) {
+        if (err) {
+            console.log("Error in query: ");
+            console.log(err);
+        }
+
+        console.log("Back from Database with result:");
+        console.log("Ingredients are: " + JSON.stringify(result.rows));
+        response.render('pages/recipes', {rows: result.rows});
+    });
+}
+
+function addRecipe(request, response) {
+    const recipe_name = request.query.recipe_name;
+    const ingredient_1 = request.query.ingredient_1;
+    const ingredient_2 = request.query.ingredient_2;
+    const ingredient_3 = request.query.ingredient_3;
+    const ingredient_4 = request.query.ingredient_4;
+    const ingredient_5 = request.query.ingredient_5;
+    const servings = request.query.servings;
+    const cooking_instructions = request.query.cooking_instructions;
+
+    console.log("Recipe Name: " + recipe_name);
+    console.log("Ingredient 1: " + ingredient_1);
+    console.log("Ingredient 2: " + ingredient_2);
+    console.log("Ingredient 3: " + ingredient_3);
+    console.log("Ingredient 4: " + ingredient_4);
+    console.log("Ingredient 5: " + ingredient_5);
+    console.log("Servings " + servings);
+    console.log("Cooking Instructions: " + cooking_instructions);
+    const sql3 = 'INSERT INTO recipe (recipe_name, ingredient_1, ingredient_2, ingredient_3, ingredient_4, ingredient_5, servings, cooking_instructions) VALUES(\'' + recipe_name + '\', ' + ingredient_1 + '\', ' + ingredient_2 + '\', ' + ingredient_3 + '\', ' + ingredient_4 + '\', ' + ingredient_5 + ', ' + servings + '\', ' + cooking_instructions + ')';
+    pool.query(sql3, function(err, result) {
+        if (err) {
+            console.log("Error in query: ");
+            console.log(err);
+        }
+        console.log("Inserting into recipe database...");
+        console.log("Insert successful. Redirection to recipe page.");
+        response.redirect("/check_recipes.html");
+
+    });
+
+
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Recipe List</title>
+</head>
+<body>
+    <h1>Current Recipe List</h1>
+    <div>
+        <p>Recipe List:
+            <table>
+                    <tr>
+                        <td><b>Recipe Name</b></td>
+                        <td><b>Ingredient 1</b></td>
+                        <td><b>Ingredient 2</b></td>
+                        <td><b>Ingredient 3</b></td>
+                        <td><b>Ingredient 4</b></td>
+                        <td><b>Ingredient 5</b></td>
+                        <td><b>Servings</b></td>
+                        <td><b>Cooking Instructions</b></td>
+
+
+                    </tr>
+                <% for (var i=0; i < rows.length; i++) { %>
+                    <tr>
+                        <td><%= rows[i].recipe_name %></td>
+                        <td><%= rows[i].ingredient_1 %></td>
+                        <td><%= rows[i].ingredient_2 %></td>
+                        <td><%= rows[i].ingredient_3 %></td>
+                        <td><%= rows[i].ingredient_4 %></td>
+                        <td><%= rows[i].ingredient_5 %></td>
+                        <td><%= rows[i].servings %></td>
+                        <td><%= rows[i].cooking_instructions %></td>
+
+
+
+                    </tr>
+               <% } %>
+            </table>
+        </p><br><br>
+
+        Click here to add a recipe <button type=button onclick="window.location.href='/add_recipies.html'">Add Recipes</button> <br><br>
+        Click here to refresh recipe list. <button type=button onclick="window.location.href='/check_recipies.html'">Refresh List</button>
+        
+    </div>
+</body>
+</html>
